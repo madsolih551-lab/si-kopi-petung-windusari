@@ -11,7 +11,7 @@
     <ul>
         <li><a href="/katalog">Lihat Katalog Produk</a></li>
         <li><a href="/pesanan/riwayat">Riwayat Pesanan</a></li>
-        <li><a href="/pelanggan/profil">Profil Akun</a></li>
+        <li><a href="/profil">Profil Akun</a></li>
     </ul>
 
     <a href="/logout">Logout</a>

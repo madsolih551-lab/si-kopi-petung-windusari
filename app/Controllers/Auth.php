@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use App\Models\PelangganModel;
 
 class Auth extends BaseController
 {
@@ -20,12 +21,23 @@ class Auth extends BaseController
         $user = $userModel->findByUsername($username);
 
         if ($user && password_verify($password, $user['password'])) {
-            session()->set([
+            $sessionData = [
                 'id_user'   => $user['id_user'],
                 'username'  => $user['username'],
                 'role'      => $user['role'],
                 'isLoggedIn' => true,
-            ]);
+            ];
+
+            // Kalau role pelanggan, coba cari data pelanggan berdasarkan nama = username
+            if ($user['role'] === 'pelanggan') {
+                $pelangganModel = new PelangganModel();
+                $pelanggan = $pelangganModel->findByNama($user['username']);
+                if ($pelanggan) {
+                    $sessionData['id_pelanggan'] = $pelanggan['id_pelanggan'];
+                }
+            }
+
+            session()->set($sessionData);
 
             if ($user['role'] === 'admin') {
                 return redirect()->to('/admin/dashboard');

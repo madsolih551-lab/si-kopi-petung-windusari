@@ -10,6 +10,11 @@ class PelangganModel extends Model
     protected $primaryKey = 'id_pelanggan';
     protected $allowedFields = ['nama', 'alamat', 'kontak', 'negara', 'tipe_pelanggan'];
 
+    public function findByNama($nama)
+    {
+        return $this->where('nama', $nama)->first();
+    }
+
     public function getRiwayatPembelian($id_pelanggan)
     {
         $db = \Config\Database::connect();
