@@ -9,10 +9,11 @@
     <p>Role: <?= session()->get('role') ?></p>
 
     <ul>
-        <li><a href="#">Kelola Produk</a></li>
-        <li><a href="#">Kelola Stok</a></li>
-        <li><a href="#">Kelola Pesanan</a></li>
-        <li><a href="#">Kelola Laporan</a></li>
+        <li><a href="/produk">Kelola Produk</a></li>
+        <li><a href="/stok">Kelola Stok</a></li>
+        <li><a href="/pesanan/kelola">Kelola Pesanan</a></li>
+        <li><a href="/laporan">Kelola Laporan</a></li>
+        <li><a href="/data-pelanggan">Data Pelanggan</a></li>
     </ul>
 
     <a href="/logout">Logout</a>
