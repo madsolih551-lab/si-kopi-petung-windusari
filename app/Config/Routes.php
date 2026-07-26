@@ -29,6 +29,8 @@ $routes->get('/pesanan/detail/(:num)', 'Pesanan::detail/$1');
 $routes->post('/pesanan/update-status/(:num)', 'Pesanan::updateStatus/$1');
 $routes->get('/data-pelanggan', 'DataPelanggan::index');
 $routes->get('/data-pelanggan/detail/(:num)', 'DataPelanggan::detail/$1');
+$routes->get('/laporan', 'Laporan::index');
+$routes->get('/laporan/pdf', 'Laporan::exportPdf');
 
 
 
